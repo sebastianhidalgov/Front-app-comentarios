@@ -1,0 +1,46 @@
+<br>
+<div class="card bg-dark text-white">
+
+  <div class="card-header text-center">Crear Comentario</div>
+  <div class="card-body">
+
+    <div class="container my-auto">
+      <form #f="ngForm" (ngSubmit)="crear(f)">
+          <!--    f.form.valid && -->
+        <div class="form-group row">
+          <label name="email" class="col-form-label col-sm-2">Email</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="email" ngModel>
+          </div>
+        </div>
+        <br>
+
+        <div class="form-group row">
+          <label name="region" class="col-form-label col-sm-2">Región</label>
+          <select class="col-sm-6" ngModel name="region">
+            <option  [ngValue]="r" *ngFor="let r of regiones">{{r.nombre}}</option>
+          </select>
+        </div>
+        <br>
+
+        <div class="form-floating">
+          <label>Comentarios</label>
+          <div class="col-sm-9  ">
+            <textarea class="form-control" name="contenido" placeholder="Leave a comment here"
+                      id="floatingTextarea" ngModel></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button type="submit" style="cursor: pointer">Crear</button>
+            <ng-template #elseBlock>
+              <button class="btn btn-primary" role="button">Editar</button>
+            </ng-template>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
